@@ -1,8 +1,114 @@
+@use "./modules/modules.scss";
+@use "./partials/palette";
+h1 {
+    padding-bottom: 50px;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+body {
+    height: 90vh;
+    background-color: rgb(219, 219, 219);
+}
+
+.header {
+    @extend %centerGrid;
+    flex-direction: column;
+    &__button {
+        &:active {
+            color: black;
+        }
+        @extend %center;
+        & > p {
+            @extend %center;
+            padding: 17px;
+            margin: 0px;
+        }
+
+        margin-bottom: 100px;
+        border: 1px solid silver;
+        display: table-cell;
+
+        background-color: palette.$tertiary;
+        border-radius: 10px;
+        width: 200px;
+        height: 80px;
+        border: black solid 1px;
+        color: white;
+        font-size: 40px;
+
+        &:hover {
+            background-color: palette.$hover;
+        }
+    }
+}
+
 .container {
-    &__grid {
-        &--button {
-            &:hover {
+    margin-top: 500px;
+    width: 20%;
+    height: 50vh;
+
+    background-color: palette.$primary;
+    border-radius: 20px;
+
+    border: solid black 2px;
+    margin: auto;
+
+    &__result {
+        border-radius: 10px;
+        height: 15%;
+        margin: 20px;
+        margin-bottom: 20px;
+        background-color: rgb(172, 172, 172);
+        border: solid black 1px;
+
+        @extend %center;
+        & > p {
+            font-size: 30px;
+            font-family: "Courier New", Courier, monospace;
+            text-align: center;
+            width: 100%;
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
+
+            &:first-child {
+                width: 20%;
             }
         }
+    }
+    &__grid {
+        margin: 20px;
+        height: 70%;
+        @extend %centerGrid;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        grid-gap: 5px;
+
+        &--button {
+            @extend %button;
+            background-color: palette.$tertiary;
+            &-dark {
+                @extend %button;
+                background-color: palette.$secondary;
+            }
+        }
+    }
+}
+%button {
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+    @extend %centerGrid;
+    border: black solid 1px;
+    color: white;
+    font-size: 40px;
+
+    &:hover {
+        background-color: palette.$hover;
+    }
+    &:active {
+        width: 90%;
+        height: 90%;
+        color: black;
     }
 }

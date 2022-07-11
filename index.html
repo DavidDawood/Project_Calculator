@@ -1,9 +1,43 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Calculator</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+  <title>Calculator</title>
         <link rel="stylesheet" href="index.css" />
-        <script src="index.js"></script>
+        <script type="text/javascript" src="./index.js"></script>
     </head>
-    <body></body>
+    <div class="header">
+        <h1>Cool calculator :)</h1>
+<button class="header__button">Clear</button>   
+    <body>
+        <div class="container">
+            <div class="container__result">
+                <p id="operator">+</p>
+                <p id="resultDisplay">I am a number :D</p>
+            </div>
+            <div class="container__grid">
+                <button class="container__grid--button">7</button>
+                <button class="container__grid--button">8</button>
+                <button class="container__grid--button">9</button>
+
+                <button class="container__grid--button-dark" onclick="divide()">/</button>
+                <button class="container__grid--button">4</button>
+                <button class="container__grid--button">5</button>
+
+                <button class="container__grid--button">6</button>
+                <button class="container__grid--button-dark">*</button>
+                <button class="container__grid--button">1</button>
+
+                <button class="container__grid--button">2</button>
+                <button class="container__grid--button">3</button>
+                <button class="container__grid--button-dark">-</button>
+                <button class="container__grid--button-dark">=</button>
+                <button class="container__grid--button">0</button>
+                <button class="container__grid--button-dark">.</button>
+                <button class="container__grid--button-dark">+</button>
+            </div>
+        </div>
+    </body>
 </html>
