@@ -43,6 +43,7 @@ body {
   margin: 0px;
 }
 .header__button:hover {
+  cursor: pointer;
   background-color: gray;
 }
 
@@ -85,8 +86,10 @@ body {
 }
 .container__grid--button {
   background-color: rgb(29, 29, 29);
+  cursor: pointer;
 }
 .container__grid--button-dark {
+  cursor: pointer;
   background-color: rgb(83, 83, 83);
 }
 

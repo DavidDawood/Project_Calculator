@@ -36,6 +36,7 @@ body {
         font-size: 40px;
 
         &:hover {
+            cursor: pointer;
             background-color: palette.$hover;
         }
     }
@@ -87,8 +88,10 @@ body {
         &--button {
             @extend %button;
             background-color: palette.$tertiary;
+            cursor: pointer;
             &-dark {
                 @extend %button;
+                cursor: pointer;
                 background-color: palette.$secondary;
             }
         }

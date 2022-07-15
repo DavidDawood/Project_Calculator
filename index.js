@@ -1,19 +1,40 @@
 let currentResult = 0;
-let futureResult = 0;
 
-let addingAmount = 0;
+let holdingValue = 0;
+
 let isDecimal = false;
 
+const operatorSymbol = document.getElementById("operator");
+const resultDisplay = document.getElementById("resultDisplay");
+
 function updateResultsText(number) {
-    const element = document.getElementById("resultDisplay");
-    element.innerHTML = number;
+    resultDisplay.innerHTML = number;
 }
 function displayTotal() {
-    updateOperator("");
-    updateResultsText("");
+    currentResult = parseFloat(currentResult);
+    holdingValue = parseFloat(holdingValue);
+    switch (operatorSymbol.innerHTML) {
+        case "+":
+            currentResult = currentResult + holdingValue;
+            break;
+        case "-":
+            currentResult = currentResult - holdingValue;
+            break;
+        case "*":
+            currentResult = currentResult * holdingValue;
+            break;
+        case "/":
+            currentResult = currentResult / holdingValue;
+            break;
+        default:
+            return;
+    }
 
-    addingAmount = 0;
-    futureResult = 0;
+    updateOperator("");
+    updateResultsText(currentResult);
+
+    holdingValue = 0;
+    isSecondHolder = false;
     isDecimal = false;
 }
 function addToAddingAmount(digit) {
@@ -21,43 +42,53 @@ function addToAddingAmount(digit) {
     if (digit == "." && isDecimal) return;
     if (digit == ".") isDecimal = true;
 
-    if (addingAmount == 0 && !isDecimal) {
-        addingAmount = digit;
+    if (currentResult == 0 && !isDecimal) {
+        currentResult = digit;
+        updateResultsText(currentResult);
     } else {
-        let stringTotal = addingAmount.toString();
-        stringTotal += digit;
-        addingAmount = stringTotal;
-    }
+        if (holdingValue == 0) holdingValue = digit;
+        else holdingValue += digit;
 
-    updateResultsText(addingAmount);
+        holdingValue = holdingValue.toString();
+        updateResultsText(holdingValue);
+    }
 }
 
 function addition() {
+    displayTotal();
     updateOperator("+");
 }
 function subtract() {
+    displayTotal();
     updateOperator("-");
 }
 function multiply() {
+    displayTotal();
     updateOperator("*");
 }
 function divide() {
+    displayTotal();
     updateOperator("/");
 }
 
 function updateOperator(operatorString) {
-    const element = document.getElementById("operator");
-    element.innerHTML = operatorString;
+    operatorSymbol.innerHTML = operatorString;
 }
 function clearCalculation() {
     currentResult = 0;
-    futureResult = 0;
-    addingAmount = 0;
+    holdingValue = 0;
     isDecimal = false;
-    displayTotal();
+    updateResultsText(0);
+    updateOperator("");
 }
 
-// will only display result on equal sign usage
-// all operators will display which one is selected on the left hand side
+// currentResult = currentResult + holdingValueOne;
+// this way i can stack results
+// make it so if i do * 5 off the bat, it will do 0 * 5, once you click equals it makes
+// currentResult  = currentResult * 5
 
-// have a global result value which can be cleared
+// dont touch currentResult, just keep modifying it, if its the start, like
+// 5+5 , it will really be 0 5 + 5
+
+// so if i want to add 5 + 5, it will be doing 0 + 5, as its current result + holdingValue
+// so in this case, if value is 0, just add it straight to the current result then
