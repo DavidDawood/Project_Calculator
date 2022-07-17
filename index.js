@@ -3,6 +3,7 @@ let currentResult = 0;
 let holdingValue = 0;
 
 let isDecimal = false;
+let isFirst = true;
 
 const operatorSymbol = document.getElementById("operator");
 const resultDisplay = document.getElementById("resultDisplay");
@@ -11,6 +12,7 @@ function updateResultsText(number) {
     resultDisplay.innerHTML = number;
 }
 function displayTotal() {
+    isFirst = false;
     currentResult = parseFloat(currentResult);
     holdingValue = parseFloat(holdingValue);
     switch (operatorSymbol.innerHTML) {
@@ -42,8 +44,11 @@ function addToAddingAmount(digit) {
     if (digit == "." && isDecimal) return;
     if (digit == ".") isDecimal = true;
 
-    if (currentResult == 0 && !isDecimal) {
-        currentResult = digit;
+    if (isFirst) {
+        if (currentResult == 0) currentResult = digit;
+        else currentResult += digit;
+
+        currentResult = currentResult.toString();
         updateResultsText(currentResult);
     } else {
         if (holdingValue == 0) holdingValue = digit;
@@ -78,6 +83,7 @@ function clearCalculation() {
     currentResult = 0;
     holdingValue = 0;
     isDecimal = false;
+    isFirst = true;
     updateResultsText(0);
     updateOperator("");
 }
