@@ -2,8 +2,6 @@
 
 A project for a calculator
 
-================================================================================================================================================================
-
 
 Upon clicking on a number, it will add it to the holding value property. Unless its the first value via (isFirst) boolean, it will instead add it straight to current Result, this is so you wouldnt be doing 0 * (holding value) but rather (input value) * (next input)
 
@@ -13,7 +11,7 @@ Once the switch statement has done the calculation, and the current result will 
 Upon clicking clear on the top, will reset all values, and also reset the isFirst property to allow the first input to be set directly to the currentResult property
 
 
-=============================================================================
+```
 
 let currentResult = 0;
 let holdingValue = 0;
@@ -23,19 +21,23 @@ let isFirst = true;
 
 const operatorSymbol = document.getElementById("operator");
 const resultDisplay = document.getElementById("resultDisplay");
+```
 
 
-=============================================================================
 
 will simply add to the result
+```
 
 function updateResultsText(number) {
 
     resultDisplay.innerHTML = number;
 }
-=============================================================================
+```
+
 
 will reset most things apart from isFirst, as to notify the addToAddingAmount function that from this point forward are to add to holding value and not current result 
+
+```
 
 function displayTotal() {
 
@@ -66,10 +68,13 @@ function displayTotal() {
     isSecondHolder = false;
     isDecimal = false;
 }
-=============================================================================
+```
+
 
 will add the digit to either the current value or holding value depending on if its the first input of the session
+```
 function addToAddingAmount(digit) {
+
 
     // one way gate to make it a decimal
     if (digit == "." && isDecimal) return;
@@ -89,11 +94,13 @@ function addToAddingAmount(digit) {
         updateResultsText(holdingValue);
     }
 }
+```
 
-=============================================================================
+
 
 all the operators below, will display the total before updating the operation, this is so you can chain the operations without being out of sync by one step as the 
 display total will do the calculation on a switch statement
+```
 
 function addition() {
 
@@ -115,17 +122,19 @@ function divide() {
     displayTotal();
     updateOperator("/");
 }
-=============================================================================
+```
 
 update what the operator output shows
+```
 
 function updateOperator(operatorString) {
 
     operatorSymbol.innerHTML = operatorString;
 }
-=============================================================================
+```
 
 Clear the whole application, including to changing the isFirst result to true as everything has been changed, as if you refreshed the page
+```
 
 function clearCalculation() {
 
@@ -136,6 +145,4 @@ function clearCalculation() {
     updateResultsText(0);
     updateOperator("");
 }
-
-
-=============================================================================
+```
