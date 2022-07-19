@@ -1,5 +1,4 @@
 let currentResult = 0;
-
 let holdingValue = 0;
 
 let isDecimal = false;
@@ -87,14 +86,3 @@ function clearCalculation() {
     updateResultsText(0);
     updateOperator("");
 }
-
-// currentResult = currentResult + holdingValueOne;
-// this way i can stack results
-// make it so if i do * 5 off the bat, it will do 0 * 5, once you click equals it makes
-// currentResult  = currentResult * 5
-
-// dont touch currentResult, just keep modifying it, if its the start, like
-// 5+5 , it will really be 0 5 + 5
-
-// so if i want to add 5 + 5, it will be doing 0 + 5, as its current result + holdingValue
-// so in this case, if value is 0, just add it straight to the current result then
