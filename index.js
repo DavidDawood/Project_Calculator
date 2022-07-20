@@ -20,6 +20,8 @@ function updateResultsText(number) {
 // remove isFirst as current result will no longer be just 0, and placing it here allows for chain operators, parse the strings as numbers and then
 // do the neccessary operation based on what the current operator string is
 function displayTotal() {
+    // reason being for the bool statements here and not the bottom of this block code as the switch operator wont actually be used for the operator in use but the previous one, and so if no operator is selected at the time it will do nothing and return, thus skipping these booleans
+
     isFirst = false;
     isDecimal = false;
     currentResult = parseFloat(currentResult);
@@ -46,7 +48,6 @@ function displayTotal() {
     updateResultsText(currentResult);
 
     holdingValue = 0;
-    isSecondHolder = false;
 }
 function addToAddingAmount(digit) {
     // one way gate to make it a decimal
