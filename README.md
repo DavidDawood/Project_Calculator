@@ -38,10 +38,6 @@ const resultDisplay = document.getElementById("resultDisplay");
 
 will simply add to the result
 
-=======
-
-will simply add to the result
-
 ```
 
 function updateResultsText(number) {
