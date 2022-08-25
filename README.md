@@ -85,8 +85,6 @@ function displayTotal() {
 
 will add the digit to either the current value or holding value depending on if its the first input of the session
 
-will add the digit to either the current value or holding value depending on if its the first input of the session
-
 ```
 function addToAddingAmount(digit) {
 
@@ -110,9 +108,6 @@ function addToAddingAmount(digit) {
     }
 }
 ```
-
-all the operators below, will display the total before updating the operation, this is so you can chain the operations without being out of sync by one step as the
-display total will do the calculation on a switch statement
 
 all the operators below, will display the total before updating the operation, this is so you can chain the operations without being out of sync by one step as the
 display total will do the calculation on a switch statement
@@ -152,7 +147,6 @@ function updateOperator(operatorString) {
 ```
 
 Clear the whole application, including to changing the isFirst result to true as everything has been changed, as if you refreshed the page
-<<<<<<< HEAD
 
 ```
 
